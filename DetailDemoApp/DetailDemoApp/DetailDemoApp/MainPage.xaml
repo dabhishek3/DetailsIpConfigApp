@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DetailDemoApp.MainPage">
+    <ScrollView>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="Welcome to Details App!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+            <StackLayout>
+                <Entry x:Name="HostName"/>
+                <Button Clicked="HostName_Clicked" Text="Send Ping On Website"/>
+                <Label x:Name="Status" TextColor="Red" FontSize="16" FontAttributes="Bold"/>
+                
+                <Button Clicked="ConnectedNetworkIpAddressLoacl_Clicked" Text="Get Local Ip Address"/>
+                <Label x:Name="ConnectedNetworkLocalIpAddress" TextColor="Red" FontSize="16" FontAttributes="Bold"/>
+                <Button Clicked="IpAddressforSUBMask_Clicked" Text="Get SubNet Mask Address"/>
+                <Label x:Name="IpAddressSubMusk" TextColor="Red" FontSize="16" FontAttributes="Bold"/>
+                <Button Clicked="PublicIpAddress_Clicked" Text="Get Public Ip Address"/>
+                <Label x:Name="PublicIpAddress" TextColor="Red" FontSize="16" FontAttributes="Bold"/>
+                <!--<Button Clicked="MACAddress_Clicked" Text="Get MAC Address Of Device"/>
+                <Label x:Name="MACAddress" TextColor="Red" FontSize="16" FontAttributes="Bold"/>-->
+                <Button Text="Get more details click here..." Clicked="MoreDetails_Clicked" TextColor="Black" BackgroundColor="AliceBlue"/>
+            </StackLayout>
+            <StackLayout x:Name="Details" HeightRequest="250" BackgroundColor="LightCyan">
+                <ListView ItemsSource="{Binding Nics, Mode=OneWay}" SelectionMode="None" RowHeight="240">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnSpacing="8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" Text="Name" FontAttributes="Bold" FontSize="Subtitle"/>
+                                    <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding Name}" FontSize="Subtitle"/>
+                                    <Label Grid.Column="1" Grid.Row="1" Text="Description" />
+                                    <Label Grid.Column="2" Grid.Row="1" Text="{Binding Description}" />
+                                    <Label Grid.Column="1" Grid.Row="2" Text="Status" />
+                                    <Label Grid.Column="2" Grid.Row="2" Text="{Binding Status}" />
+                                    <Label Grid.Column="1" Grid.Row="3" Text="Type" />
+                                    <Label Grid.Column="2" Grid.Row="3" Text="{Binding Type}" />
+                                    <Label Grid.Column="1" Grid.Row="4" Text="Supports" />
+                                    <Label Grid.Column="2" Grid.Row="4" Text="{Binding Supports}" />
+                                    <Label Grid.Column="1" Grid.Row="5" Text="IPv4Addresses" />
+                                    <Label Grid.Column="2" Grid.Row="5" Text="{Binding IPv4Addresses}" />
+                                    <Label Grid.Column="1" Grid.Row="6" Text="IPv6Addresses" />
+                                    <Label Grid.Column="2" Grid.Row="6" Text="{Binding IPv6Addresses}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+    
+
+
+</ContentPage>
